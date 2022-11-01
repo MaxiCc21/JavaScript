@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda Ropa | Golden</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main class="container-show">
+      <section class="nav">
+        <ul>
+          <a href="../index.html" class="link">Home</a>
+          <a href="./male.html" class="link">Masculino</a>
+          <!-- Puedo mandar el valor hombre como un atributo de el link (data = "male")-->
+          <a href="./female.html" class="link">Femenino</a>
+          <a href="#" class="link">Niños</a>
+        </ul>
+      </section>
+      <section class="box box-show">
+        <template id="template-show">
+          <div class="sub-box-show">
+            <div class="s1">
+              <img src="" alt="" class="img1" />
+              <img src="" alt="" class="img2" />
+              <img src="" alt="" class="img3" />
+            </div>
+            <div class="s2">
+              <img src="" alt="" />
+            </div>
+            <div class="s3">
+              <div class="producto"><span></span></div>
+              <div class="precio"><span></span></div>
+              <div class="separacion"></div>
+              <div class="talla"><span>Talle</span></div>
+              <div class="pedido">
+                <span>label de cantidad</span>
+                <button>
+                  <i class="fa-solid fa-cart-shopping"></i> Agregar al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+        </template>
+      </section>
+      <section class="footer">
+        <div>
+          <a href="">Politicas de privacidad</a>
+          <p>|</p>
+          <a href="">Contacto</a>
+          <p>|</p>
+          <a href="">Ayuda al consumidor</a>
+        </div>
+      </section>
+    </main>
+    <script src="../js/show-item.js" type="module"></script>
+  </body>
+</html>

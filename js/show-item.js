@@ -3,8 +3,6 @@ const $box_show = document.querySelector(".box-show"),
 
 let prendaData = sessionStorage.getItem("prenda");
 
-console.log(JSON.parse(prendaData));
-
 function generarShow(prenda, template, box) {
   //Recupera los datos guardados en el sessionStorage y crea un template dinamico con los datos obtenidos
   prenda = JSON.parse(prenda);
@@ -24,7 +22,6 @@ function generarShow(prenda, template, box) {
   template.querySelector(".producto").children[0].textContent = description;
   template.querySelector(".precio").children[0].textContent = `$${price}`;
 
-  console.log(template);
   box.appendChild(template);
 }
 

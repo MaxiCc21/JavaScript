@@ -81,9 +81,6 @@ function createLocalStorage() {
 
     localStorage.setItem("mujer", JSON.stringify(mujer));
     localStorage.setItem("hombre", JSON.stringify(hombre));
-    console.log("JSON creado");
-  } else {
-    console.log("El JSON ya existe");
   }
 }
 
@@ -108,8 +105,6 @@ export function generarCard(option) {
     const $clon = document.importNode($templateCard, true);
     $fragment.appendChild($clon);
   });
-
-  // Guardar en el temporarl storage un true si ya se realizo esta accion y si es true no volver a cargar
 
   $cards.appendChild($fragment);
 }

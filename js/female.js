@@ -2,14 +2,15 @@ import { generarCard } from "./script.js";
 
 generarCard("mujer");
 
-const $cards = document.querySelector(".cards"),
-  $linksCards = $cards.querySelectorAll("a");
+const $linksCards = document.querySelectorAll(".cards a");
 
-$linksCards.forEach((link) => {
-  //Crea un listener para todos los links de las cards creadas con generarCard
-  link.addEventListener("click", () => {
-    enviarDatosPrenda(link.parentNode, localStorage.getItem("mujer"));
-  });
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".cards a p")) {
+    enviarDatosPrenda(
+      e.target.parentNode.parentNode,
+      localStorage.getItem("mujer")
+    );
+  }
 });
 
 function enviarDatosPrenda(padre, prenda) {

@@ -1,4 +1,5 @@
 function createLocalStorage() {
+  //Genera un objeto que luego es agregado al local storage
   if (localStorage.length == 0) {
     const mujer = [
       {
@@ -94,6 +95,7 @@ const $templateCard = document.getElementById("template-card").content,
   $fragment = document.createDocumentFragment();
 
 export function generarCard(option) {
+  //Genera tarjetas dinamicas en los html donde esta funcion sea llamada,dependiendo del option que le pase toma los datos del LocalSotorage
   let prueba = localStorage.getItem(option);
   prueba = JSON.parse(prueba);
   prueba.forEach((element, index) => {

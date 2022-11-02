@@ -6,6 +6,7 @@ let prendaData = sessionStorage.getItem("prenda");
 console.log(JSON.parse(prendaData));
 
 function generarShow(prenda, template, box) {
+  //Recupera los datos guardados en el sessionStorage y crea un template dinamico con los datos obtenidos
   prenda = JSON.parse(prenda);
 
   let { img1, img2, img3, alt, description, price } = prenda;

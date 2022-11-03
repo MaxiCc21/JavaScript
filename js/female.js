@@ -2,8 +2,6 @@ import { generarCard } from "./script.js";
 
 generarCard("mujer");
 
-const $linksCards = document.querySelectorAll(".cards a");
-
 document.addEventListener("click", (e) => {
   if (e.target.matches(".cards a p")) {
     enviarDatosPrenda(

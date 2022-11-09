@@ -1,5 +1,5 @@
 import { generarCard, generarShow } from "./dinamic-template.js";
-
+import { butonToUp } from "./buttonToUp.js";
 function createLocalStorage() {
   //Genera un objeto que luego es agregado al local storage
   if (localStorage.length == 0) {
@@ -189,6 +189,7 @@ let url = document.location.pathname;
 
 if (url.includes("hombre")) {
   generarCard("hombre");
+  butonToUp(300);
 }
 
 if (url.includes("mujer")) {

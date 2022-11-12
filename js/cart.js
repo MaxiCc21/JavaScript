@@ -8,12 +8,27 @@ document.addEventListener("click", (e) => {
   }
 });
 
+if (!sessionStorage.getItem("carrito")) {
+  sessionStorage.setItem("carrito", JSON.stringify([]));
+} else {
+  console.log("Ya esta creado");
+}
+
 function agregarAlCarrito() {
   let element = sessionStorage.getItem("prenda"),
     fCantidad = document.querySelector("input").value;
   element = JSON.parse(element);
 
   let { description, price } = element;
+  const productoCarrito = {
+    description,
+    price,
+    cantidad: fCantidad,
+    total_price: price * fCantidad,
+  };
 
-  alert(`${description} ${fCantidad} x ${Number(price) * Number(fCantidad)}`);
+  const productosCarrito = JSON.parse(sessionStorage.getItem("carrito"));
+  productosCarrito.push(productoCarrito);
+  console.log("Entra");
+  sessionStorage.setItem("carrito", JSON.stringify(productosCarrito));
 }

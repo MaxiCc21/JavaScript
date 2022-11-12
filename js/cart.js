@@ -14,6 +14,17 @@ function agregarAlCarrito() {
   element = JSON.parse(element);
 
   let { description, price } = element;
+  const productoCarrito = {
+    description,
+    price,
+    cantidad: fCantidad,
+    total_price: price * fCantidad,
+  };
+
+  const productosCarrito = JSON.parse(sessionStorage.getItem("carrito"));
+  productosCarrito.push(productoCarrito);
+
+  sessionStorage.setItem("carrito", JSON.stringify(productosCarrito));
 
   alert(`${description} ${fCantidad} x ${Number(price) * Number(fCantidad)}`);
 }

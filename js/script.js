@@ -72,7 +72,7 @@ function createLocalStorage() {
         price: 5000,
       },
       {
-        img1: "../img/masculino/zapatilla-negra.jpg",
+        img1: "https://placeimg.com/200/200/any",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
         alt: "Imagen de Zapatilla deportiva",
@@ -96,7 +96,7 @@ function createLocalStorage() {
         price: 5000,
       },
       {
-        img1: "../img/masculino/zapatilla-negra.jpg",
+        img1: "https://placeimg.com/200/200/any",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
         alt: "Imagen de Zapatilla deportiva",
@@ -120,7 +120,7 @@ function createLocalStorage() {
         price: 5000,
       },
       {
-        img1: "../img/masculino/zapatilla-negra.jpg",
+        img1: "https://placeimg.com/200/200/any",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
         alt: "Imagen de Zapatilla deportiva",
@@ -144,7 +144,7 @@ function createLocalStorage() {
         price: 5000,
       },
       {
-        img1: "../img/masculino/zapatilla-negra.jpg",
+        img1: "https://placeimg.com/200/200/any",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
         alt: "Imagen de Zapatilla deportiva",
@@ -168,7 +168,7 @@ function createLocalStorage() {
         price: 5000,
       },
       {
-        img1: "../img/masculino/zapatilla-negra.jpg",
+        img1: "https://placeimg.com/200/200/any",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
         alt: "Imagen de Zapatilla deportiva",
@@ -194,8 +194,23 @@ if (url.includes("hombre")) {
 
 if (url.includes("mujer")) {
   generarCard("mujer");
+  butonToUp(300);
 }
 
 if (url.includes("show")) {
   generarShow();
 }
+
+console.log();
+
+const loader = document.querySelector(".loader"),
+  divsLoader = document.querySelectorAll(".lds-ellipsis div");
+
+window.addEventListener("load", () => {
+  loader.classList.toggle("loader2");
+  divsLoader.forEach((el) => {
+    el.classList.toggle("dispel");
+  });
+});
+
+console.log(window);

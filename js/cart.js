@@ -32,3 +32,4 @@ function agregarAlCarrito() {
   console.log("Entra");
   sessionStorage.setItem("carrito", JSON.stringify(productosCarrito));
 }
+console.log("Hola");

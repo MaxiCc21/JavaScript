@@ -201,6 +201,7 @@ if (url.includes("show")) {
   generarShow();
 }
 
+// Carrito
 const $iconCarrito = document.querySelector(".nav ul").lastElementChild;
 
 $iconCarrito.addEventListener("click", () => {
@@ -214,8 +215,7 @@ $iconCarrito.addEventListener("click", () => {
   });
 });
 
-console.log($iconCarrito);
-
+// Loader
 const loader = document.querySelector(".loader"),
   divsLoader = document.querySelectorAll(".lds-ellipsis div");
 

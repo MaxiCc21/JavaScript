@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
+    <!-- Loader Area -->
     <div class="loader" id="loader">
       <div class="lds-ellipsis loader" id="loader">
         <div></div>
@@ -20,7 +21,9 @@
         <div></div>
       </div>
     </div>
+    <!-- Main -->
     <main class="container-index">
+      <!-- Nav -->
       <section class="nav">
         <ul>
           <a href="../index.html" class="link">Home</a>
@@ -30,9 +33,10 @@
           <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
         </ul>
       </section>
-
+      <!-- Box -->
       <section class="box">
         <div class="cards">
+          <!-- Template Box -->
           <template id="template-card">
             <div class="card" data-id="">
               <img src="" alt="" />
@@ -42,6 +46,8 @@
             </div>
           </template>
         </div>
+
+        <!-- Template SweetAlert -->
         <template id="my-template">
           <swal-title>Carrito de compras</swal-title>
           <swal-html>

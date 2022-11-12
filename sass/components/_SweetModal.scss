@@ -1,0 +1,33 @@
+.s1-SweetModal{
+    padding: 10px;
+    background-color:rgba(236, 236, 236, 0.832);
+    border-radius: 10px;
+    max-height: 360px;
+
+    .item{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color:rgba(255, 0, 0, 0);
+        display: flex;
+        align-items: center;
+        width:100%;
+
+        img{
+            height: 100px;
+            width: 100px;
+            border-radius: 25px;
+          }
+          
+        p{
+            padding-left: 50px;
+          }
+      
+      }
+  }
+  
+ 
+  
+
+  
+
+  

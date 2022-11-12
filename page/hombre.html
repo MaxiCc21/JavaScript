@@ -5,9 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienda de roma | Golden</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
+    <div class="loader" id="loader">
+      <div class="lds-ellipsis loader" id="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <main class="container-index">
       <section class="nav">
         <ul>
@@ -15,6 +27,7 @@
           <a href="./hombre.html" class="link">Masculino</a>
           <a href="./mujer.html" class="link">Femenino</a>
           <a href="#" class="link">Niños</a>
+          <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
         </ul>
       </section>
 
@@ -28,7 +41,11 @@
             </div>
           </template>
         </div>
+        <button class="BtnScrollToTop">
+          <i class="fa-solid fa-arrow-up"></i>
+        </button>
       </section>
+
       <section class="footer">
         <div>
           <a href="">Politicas de privacidad</a>

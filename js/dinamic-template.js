@@ -19,7 +19,6 @@ export function generarCard(option) {
   $cards.appendChild($fragment);
 
   document.addEventListener("click", (e) => {
-    console.log("Hola");
     if (e.target.matches(".cards a p")) {
       enviarDatosPrenda(
         e.target.parentNode.parentNode,

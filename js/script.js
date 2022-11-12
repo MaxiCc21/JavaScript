@@ -201,7 +201,20 @@ if (url.includes("show")) {
   generarShow();
 }
 
-console.log();
+const $iconCarrito = document.querySelector(".nav ul").lastElementChild;
+
+$iconCarrito.addEventListener("click", () => {
+  Swal.fire({
+    template: "#my-template",
+    confirmButtonText: "Comprar",
+  }).then((res) => {
+    if (res.isConfirmed) {
+      Swal.fire("Compra realizada!\nMuchas gracias", "", "success");
+    }
+  });
+});
+
+console.log($iconCarrito);
 
 const loader = document.querySelector(".loader"),
   divsLoader = document.querySelectorAll(".lds-ellipsis div");

@@ -66,3 +66,31 @@ export function generarShow() {
 
   $box_show.appendChild(template_show);
 }
+
+export function generarSweetModalCarrito(carrito) {
+  // $templateProducto Contiene un template que esta contenido en otro template
+  // fragment se guardan todas las instancias generadas para ser agregadas a $box
+  // $box es el contenedor donde van a ir agregado el fragmento
+
+  const $templateProducto = document
+      .getElementById("my-template")
+      .content.getElementById("template-producto").content,
+    $box = document.querySelector(".s1-SweetModal"),
+    fragment = document.createDocumentFragment();
+
+  // Informacion para generar los template
+
+  const Carrito = JSON.parse(sessionStorage.getItem("carrito"));
+  console.log(Carrito);
+
+  Carrito.forEach(el => {
+    const 
+  });
+
+  const $clon = document.importNode($templateProducto, true);
+
+  console.log($templateProducto);
+}
+
+// Podria hacer una funcion para buscar la info de storage, hago los mismo paso
+// en distintas funcionas(type="tipo se sesion", obj = "Lo que hay que buscar" )

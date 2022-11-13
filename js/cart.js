@@ -19,17 +19,17 @@ function agregarAlCarrito() {
     fCantidad = document.querySelector("input").value;
   element = JSON.parse(element);
 
-  let { description, price } = element;
+  let { id, img1, description, price } = element;
   const productoCarrito = {
+    id,
+    img1,
     description,
     price,
-    cantidad: fCantidad,
+    cantidad: Number(fCantidad),
     total_price: price * fCantidad,
   };
 
   const productosCarrito = JSON.parse(sessionStorage.getItem("carrito"));
   productosCarrito.push(productoCarrito);
-  console.log("Entra");
   sessionStorage.setItem("carrito", JSON.stringify(productosCarrito));
 }
-console.log("Hola");

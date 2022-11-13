@@ -1,4 +1,8 @@
-import { generarCard, generarShow } from "./dinamic-template.js";
+import {
+  generarCard,
+  generarShow,
+  generarSweetModalCarrito,
+} from "./dinamic-template.js";
 import { butonToUp } from "./buttonToUp.js";
 function createLocalStorage() {
   //Genera un objeto que luego es agregado al local storage
@@ -56,6 +60,7 @@ function createLocalStorage() {
 
     const hombre = [
       {
+        id: 1,
         img1: "../img/masculino/buzo-blanco.jpg",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -64,6 +69,7 @@ function createLocalStorage() {
         price: 7000,
       },
       {
+        id: 2,
         img1: "../img/masculino/camisa-azul.jpg",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -72,6 +78,7 @@ function createLocalStorage() {
         price: 5000,
       },
       {
+        id: 3,
         img1: "https://placeimg.com/200/200/any",
         img2: "https://dummyimage.com/200/000000/ffffff.jpg",
         img3: "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -79,102 +86,102 @@ function createLocalStorage() {
         description: "Zapatilla deportiva",
         price: 12000,
       },
-      {
-        img1: "../img/masculino/buzo-blanco.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Buzo blanco",
-        description: "Buzo blanco",
-        price: 7000,
-      },
-      {
-        img1: "../img/masculino/camisa-azul.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Camisa azul",
-        description: "Camisa azul",
-        price: 5000,
-      },
-      {
-        img1: "https://placeimg.com/200/200/any",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Zapatilla deportiva",
-        description: "Zapatilla deportiva",
-        price: 12000,
-      },
-      {
-        img1: "../img/masculino/buzo-blanco.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Buzo blanco",
-        description: "Buzo blanco",
-        price: 7000,
-      },
-      {
-        img1: "../img/masculino/camisa-azul.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Camisa azul",
-        description: "Camisa azul",
-        price: 5000,
-      },
-      {
-        img1: "https://placeimg.com/200/200/any",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Zapatilla deportiva",
-        description: "Zapatilla deportiva",
-        price: 12000,
-      },
-      {
-        img1: "../img/masculino/buzo-blanco.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Buzo blanco",
-        description: "Buzo blanco",
-        price: 7000,
-      },
-      {
-        img1: "../img/masculino/camisa-azul.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Camisa azul",
-        description: "Camisa azul",
-        price: 5000,
-      },
-      {
-        img1: "https://placeimg.com/200/200/any",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Zapatilla deportiva",
-        description: "Zapatilla deportiva",
-        price: 12000,
-      },
-      {
-        img1: "../img/masculino/buzo-blanco.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Buzo blanco",
-        description: "Buzo blanco",
-        price: 7000,
-      },
-      {
-        img1: "../img/masculino/camisa-azul.jpg",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Camisa azul",
-        description: "Camisa azul",
-        price: 5000,
-      },
-      {
-        img1: "https://placeimg.com/200/200/any",
-        img2: "https://dummyimage.com/200/000000/ffffff.jpg",
-        img3: "https://dummyimage.com/200/000000/ffffff.jpg",
-        alt: "Imagen de Zapatilla deportiva",
-        description: "Zapatilla deportiva",
-        price: 12000,
-      },
+      // {
+      //   img1: "../img/masculino/buzo-blanco.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Buzo blanco",
+      //   description: "Buzo blanco",
+      //   price: 7000,
+      // },
+      // {
+      //   img1: "../img/masculino/camisa-azul.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Camisa azul",
+      //   description: "Camisa azul",
+      //   price: 5000,
+      // },
+      // {
+      //   img1: "https://placeimg.com/200/200/any",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Zapatilla deportiva",
+      //   description: "Zapatilla deportiva",
+      //   price: 12000,
+      // },
+      // {
+      //   img1: "../img/masculino/buzo-blanco.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Buzo blanco",
+      //   description: "Buzo blanco",
+      //   price: 7000,
+      // },
+      // {
+      //   img1: "../img/masculino/camisa-azul.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Camisa azul",
+      //   description: "Camisa azul",
+      //   price: 5000,
+      // },
+      // {
+      //   img1: "https://placeimg.com/200/200/any",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Zapatilla deportiva",
+      //   description: "Zapatilla deportiva",
+      //   price: 12000,
+      // },
+      // {
+      //   img1: "../img/masculino/buzo-blanco.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Buzo blanco",
+      //   description: "Buzo blanco",
+      //   price: 7000,
+      // },
+      // {
+      //   img1: "../img/masculino/camisa-azul.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Camisa azul",
+      //   description: "Camisa azul",
+      //   price: 5000,
+      // },
+      // {
+      //   img1: "https://placeimg.com/200/200/any",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Zapatilla deportiva",
+      //   description: "Zapatilla deportiva",
+      //   price: 12000,
+      // },
+      // {
+      //   img1: "../img/masculino/buzo-blanco.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Buzo blanco",
+      //   description: "Buzo blanco",
+      //   price: 7000,
+      // },
+      // {
+      //   img1: "../img/masculino/camisa-azul.jpg",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Camisa azul",
+      //   description: "Camisa azul",
+      //   price: 5000,
+      // },
+      // {
+      //   img1: "https://placeimg.com/200/200/any",
+      //   img2: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   img3: "https://dummyimage.com/200/000000/ffffff.jpg",
+      //   alt: "Imagen de Zapatilla deportiva",
+      //   description: "Zapatilla deportiva",
+      //   price: 12000,
+      // },
     ];
 
     localStorage.setItem("mujer", JSON.stringify(mujer));
@@ -214,6 +221,7 @@ $iconCarrito.addEventListener("click", () => {
     }
   });
 });
+generarSweetModalCarrito();
 
 // Loader
 const loader = document.querySelector(".loader"),
@@ -225,5 +233,3 @@ window.addEventListener("load", () => {
     el.classList.toggle("dispel");
   });
 });
-
-console.log(window);

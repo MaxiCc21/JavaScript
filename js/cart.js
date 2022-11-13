@@ -29,7 +29,5 @@ function agregarAlCarrito() {
 
   const productosCarrito = JSON.parse(sessionStorage.getItem("carrito"));
   productosCarrito.push(productoCarrito);
-  console.log("Entra");
   sessionStorage.setItem("carrito", JSON.stringify(productosCarrito));
 }
-console.log("Hola");

@@ -1,4 +1,8 @@
-import { generarCard, generarShow } from "./dinamic-template.js";
+import {
+  generarCard,
+  generarShow,
+  generarSweetModalCarrito,
+} from "./dinamic-template.js";
 import { butonToUp } from "./buttonToUp.js";
 function createLocalStorage() {
   //Genera un objeto que luego es agregado al local storage
@@ -214,6 +218,7 @@ $iconCarrito.addEventListener("click", () => {
     }
   });
 });
+generarSweetModalCarrito();
 
 // Loader
 const loader = document.querySelector(".loader"),

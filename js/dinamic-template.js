@@ -45,6 +45,7 @@ export function generarShow() {
 
   let prendaData = sessionStorage.getItem("prenda");
   prendaData = JSON.parse(prendaData);
+  console.log(prendaData);
 
   let { img1, img2, img3, alt, description, price } = prendaData;
   template_show.querySelector(".s1").children[0].setAttribute("src", img1);
@@ -69,27 +70,35 @@ export function generarShow() {
 
 export function generarSweetModalCarrito(carrito) {
   // $templateProducto Contiene un template que esta contenido en otro template
-  // fragment se guardan todas las instancias generadas para ser agregadas a $box
+  // $fragment se guardan todas las instancias generadas para ser agregadas a $box
   // $box es el contenedor donde van a ir agregado el fragmento
 
   const $templateProducto = document
       .getElementById("my-template")
       .content.getElementById("template-producto").content,
-    $box = document.querySelector(".s1-SweetModal"),
-    fragment = document.createDocumentFragment();
+    $box = document
+      .getElementById("my-template")
+      .content.querySelector(".s1-SweetModal"),
+    $fragment = document.createDocumentFragment();
+
+  console.log($templateProducto);
 
   // Informacion para generar los template
 
   const Carrito = JSON.parse(sessionStorage.getItem("carrito"));
-  console.log(Carrito);
 
-  Carrito.forEach(el => {
-    const 
+  Carrito.forEach((element) => {
+    let { img1, description, price, cantidad, total_price } = element;
+    $templateProducto.querySelector("img").setAttribute("src", img1);
+    $templateProducto.querySelectorAll("p")[0].textContent = description;
+    $templateProducto.querySelectorAll(
+      "p"
+    )[1].textContent = `${cantidad} Unidades x $${total_price}`;
+    const $clon = document.importNode($templateProducto, true);
+    $fragment.appendChild($clon);
   });
 
-  const $clon = document.importNode($templateProducto, true);
-
-  console.log($templateProducto);
+  $box.appendChild($fragment);
 }
 
 // Podria hacer una funcion para buscar la info de storage, hago los mismo paso

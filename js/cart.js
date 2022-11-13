@@ -19,11 +19,13 @@ function agregarAlCarrito() {
     fCantidad = document.querySelector("input").value;
   element = JSON.parse(element);
 
-  let { description, price } = element;
+  let { id, img1, description, price } = element;
   const productoCarrito = {
+    id,
+    img1,
     description,
     price,
-    cantidad: fCantidad,
+    cantidad: Number(fCantidad),
     total_price: price * fCantidad,
   };
 

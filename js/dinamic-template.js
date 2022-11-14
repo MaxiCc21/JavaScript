@@ -76,13 +76,14 @@ export function generarSweetModalCarrito(carrito) {
   const $templateProducto = document
       .getElementById("my-template")
       .content.getElementById("template-producto").content,
+    $templateSweet = document.getElementById("my-template").content,
     $box = document
       .getElementById("my-template")
       .content.querySelector(".s1-SweetModal"),
     $fragment = document.createDocumentFragment();
 
   console.log($templateProducto);
-
+  let newTotal_price = 0;
   // Informacion para generar los template
 
   const Carrito = JSON.parse(sessionStorage.getItem("carrito"));
@@ -96,9 +97,13 @@ export function generarSweetModalCarrito(carrito) {
     )[1].textContent = `${cantidad} Unidades x $${total_price}`;
     const $clon = document.importNode($templateProducto, true);
     $fragment.appendChild($clon);
+    newTotal_price = newTotal_price + total_price;
   });
 
   $box.appendChild($fragment);
+  $templateSweet.querySelector(
+    "span"
+  ).textContent = `Precio Total: $${newTotal_price}`;
 }
 
 // Podria hacer una funcion para buscar la info de storage, hago los mismo paso

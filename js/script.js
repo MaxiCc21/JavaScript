@@ -188,8 +188,6 @@ function createLocalStorage() {
     localStorage.setItem("mujer", JSON.stringify(mujer));
     localStorage.setItem("hombre", JSON.stringify(hombre));
 
-    console.log(sessionStorage.getItem("carrito"));
-
     if (!sessionStorage.getItem("carrito")) {
       sessionStorage.setItem("carrito", JSON.stringify([]));
     }

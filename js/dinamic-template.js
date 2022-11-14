@@ -30,7 +30,6 @@ export function generarCard(option) {
   function enviarDatosPrenda(padre, prenda) {
     //Recupera y envia los datos al sessionStorage del producto de la card seleccionada
     let prendaID = padre.getAttribute("data-id");
-    console.log(prendaID);
     prenda = JSON.parse(prenda);
     prenda = prenda[prendaID];
     const JsonPrenda = JSON.stringify(prenda);
@@ -45,7 +44,6 @@ export function generarShow() {
 
   let prendaData = sessionStorage.getItem("prenda");
   prendaData = JSON.parse(prendaData);
-  console.log(prendaData);
 
   let { img1, img2, img3, alt, description, price } = prendaData;
   template_show.querySelector(".s1").children[0].setAttribute("src", img1);
@@ -82,7 +80,6 @@ export function generarSweetModalCarrito(carrito) {
       .content.querySelector(".s1-SweetModal"),
     $fragment = document.createDocumentFragment();
 
-  console.log($templateProducto);
   let newTotal_price = 0;
   // Informacion para generar los template
 

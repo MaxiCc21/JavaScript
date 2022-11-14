@@ -101,9 +101,12 @@ export function generarSweetModalCarrito(carrito) {
   });
 
   $box.appendChild($fragment);
-  $templateSweet.querySelector(
-    "span"
-  ).textContent = `Precio Total: $${newTotal_price}`;
+
+  if (newTotal_price) {
+    $templateSweet.querySelector(
+      "span"
+    ).textContent = `Precio Total: $${newTotal_price}`;
+  }
 }
 
 // Podria hacer una funcion para buscar la info de storage, hago los mismo paso

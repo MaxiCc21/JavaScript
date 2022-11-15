@@ -30,7 +30,6 @@ export function generarCard(option) {
   function enviarDatosPrenda(padre, prenda) {
     //Recupera y envia los datos al sessionStorage del producto de la card seleccionada
     let prendaID = padre.getAttribute("data-id");
-    console.log(prendaID);
     prenda = JSON.parse(prenda);
     prenda = prenda[prendaID];
     const JsonPrenda = JSON.stringify(prenda);
@@ -45,7 +44,6 @@ export function generarShow() {
 
   let prendaData = sessionStorage.getItem("prenda");
   prendaData = JSON.parse(prendaData);
-  console.log(prendaData);
 
   let { img1, img2, img3, alt, description, price } = prendaData;
   template_show.querySelector(".s1").children[0].setAttribute("src", img1);
@@ -76,13 +74,13 @@ export function generarSweetModalCarrito(carrito) {
   const $templateProducto = document
       .getElementById("my-template")
       .content.getElementById("template-producto").content,
+    $templateSweet = document.getElementById("my-template").content,
     $box = document
       .getElementById("my-template")
       .content.querySelector(".s1-SweetModal"),
     $fragment = document.createDocumentFragment();
 
-  console.log($templateProducto);
-
+  let newTotal_price = 0;
   // Informacion para generar los template
 
   const Carrito = JSON.parse(sessionStorage.getItem("carrito"));
@@ -96,9 +94,16 @@ export function generarSweetModalCarrito(carrito) {
     )[1].textContent = `${cantidad} Unidades x $${total_price}`;
     const $clon = document.importNode($templateProducto, true);
     $fragment.appendChild($clon);
+    newTotal_price = newTotal_price + total_price;
   });
 
   $box.appendChild($fragment);
+
+  if (newTotal_price) {
+    $templateSweet.querySelector(
+      "span"
+    ).textContent = `Precio Total: $${newTotal_price}`;
+  }
 }
 
 // Podria hacer una funcion para buscar la info de storage, hago los mismo paso

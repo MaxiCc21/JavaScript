@@ -1,26 +1,23 @@
 import { getData } from "./script.js";
 
-export function generarCard(option) {
+export async function generarCard(option) {
   const $templateCard = document.getElementById("template-card").content,
     $cards = document.querySelector(".cards"),
     $fragment = document.createDocumentFragment();
   //Genera tarjetas dinamicas en los html donde esta funcion sea llamada,dependiendo del option que le pase toma los datos del LocalSotorage
 
-  getData(option).then((items) => {
-    console.log(items);
-    items.forEach((element, index) => {
-      let { img1, img2, img3, alt, description, price } = element;
-      $templateCard.querySelector("div").setAttribute("data-id", index);
-      $templateCard.querySelector("img").setAttribute("src", img1);
-      $templateCard.querySelector("img").setAttribute("alt", alt);
-      $templateCard.querySelectorAll("p")[0].textContent = description;
-      $templateCard.querySelectorAll("p")[1].textContent = `$${price}`;
-      const $clon = document.importNode($templateCard, true);
-      $fragment.appendChild($clon);
-    });
-    $cards.appendChild($fragment);
+  const items = await getData(option);
+  items.forEach((element, index) => {
+    let { img1, img2, img3, alt, description, price } = element;
+    $templateCard.querySelector("div").setAttribute("data-id", index);
+    $templateCard.querySelector("img").setAttribute("src", img1);
+    $templateCard.querySelector("img").setAttribute("alt", alt);
+    $templateCard.querySelectorAll("p")[0].textContent = description;
+    $templateCard.querySelectorAll("p")[1].textContent = `$${price}`;
+    const $clon = document.importNode($templateCard, true);
+    $fragment.appendChild($clon);
   });
-
+  $cards.appendChild($fragment);
   // let prenda = localStorage.getItem(option);
   // prenda = JSON.parse(prenda);
   // prenda.forEach((element, index) => {
@@ -35,20 +32,19 @@ export function generarCard(option) {
   // });
 
   // $cards.appendChild($fragment);
-
+  const section = await getData(option);
+  console.log(section);
   document.addEventListener("click", (e) => {
     if (e.target.matches(".cards a p")) {
-      enviarDatosPrenda(
-        e.target.parentNode.parentNode,
-        localStorage.getItem(option)
-      );
+      enviarDatosPrenda(e.target.parentNode.parentNode, section);
+
+      // Tengo que hacer que la info se madne al sessionstorage
     }
   });
 
   function enviarDatosPrenda(padre, prenda) {
     //Recupera y envia los datos al sessionStorage del producto de la card seleccionada
     let prendaID = padre.getAttribute("data-id");
-    prenda = JSON.parse(prenda);
     prenda = prenda[prendaID];
     const JsonPrenda = JSON.stringify(prenda);
     sessionStorage.setItem("prenda", JsonPrenda);

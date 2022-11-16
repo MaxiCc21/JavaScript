@@ -1,3 +1,5 @@
+import { getData } from "./script.js";
+
 export function generarCard(option) {
   const $templateCard = document.getElementById("template-card").content,
     $cards = document.querySelector(".cards"),

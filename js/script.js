@@ -161,8 +161,6 @@ function createLocalStorage() {
       },
     ];
 
-    console.log(JSON.stringify(hombre));
-
     localStorage.setItem("mujer", JSON.stringify(mujer));
     localStorage.setItem("hombre", JSON.stringify(hombre));
 
@@ -173,7 +171,7 @@ function createLocalStorage() {
 }
 
 localStorage.clear();
-createLocalStorage();
+// createLocalStorage();
 
 let url = document.location.pathname;
 
@@ -216,3 +214,35 @@ window.addEventListener("load", () => {
     el.classList.toggle("dispel");
   });
 });
+
+export async function getData(section, id = undefined) {
+  let res = await fetch("../json/data.json"),
+    json = await res.json();
+
+  if (id === undefined) {
+    if (section == "hombre") {
+      return json.items.hombre;
+    }
+    if (section == "mujer") {
+      return json.items.mujer;
+    }
+  }
+
+  if (id !== undefined) {
+    if (section == "hombre") {
+      return json.items.hombre[id];
+    }
+    if (section == "mujer") {
+      return json.items.mujer[id];
+    }
+  }
+}
+
+getData("hombre", 0)
+  .then((el) => {
+    let x = `hola ${el}`;
+    return x;
+  })
+  .then((x) => {
+    // console.log(x);
+  });

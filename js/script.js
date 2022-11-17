@@ -65,5 +65,3 @@ export async function getData(section, id = undefined) {
     return json.items.mujer[id] || json.items.mujer;
   }
 }
-
-const lol = await getData("mujer");

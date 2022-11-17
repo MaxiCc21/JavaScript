@@ -113,6 +113,3 @@ export function generarSweetModalCarrito() {
     ).textContent = `Precio Total: $${newTotal_price}`;
   }
 }
-
-// Podria hacer una funcion para buscar la info de storage, hago los mismo paso
-// en distintas funcionas(type="tipo se sesion", obj = "Lo que hay que buscar" )

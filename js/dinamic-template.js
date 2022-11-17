@@ -5,6 +5,7 @@ export async function generarCard(option) {
     $cards = document.querySelector(".cards"),
     $fragment = document.createDocumentFragment();
   //Genera tarjetas dinamicas en los html donde esta funcion sea llamada,dependiendo del option que le pase toma los datos del LocalSotorage
+  console.log(window.location);
 
   const items = await getData(option);
   items.forEach((element, index) => {
@@ -18,27 +19,11 @@ export async function generarCard(option) {
     $fragment.appendChild($clon);
   });
   $cards.appendChild($fragment);
-  // let prenda = localStorage.getItem(option);
-  // prenda = JSON.parse(prenda);
-  // prenda.forEach((element, index) => {
-  //   let { img1, img2, img3, alt, description, price } = element;
-  //   $templateCard.querySelector("div").setAttribute("data-id", index);
-  //   $templateCard.querySelector("img").setAttribute("src", img1);
-  //   $templateCard.querySelector("img").setAttribute("alt", alt);
-  //   $templateCard.querySelectorAll("p")[0].textContent = description;
-  //   $templateCard.querySelectorAll("p")[1].textContent = `$${price}`;
-  //   const $clon = document.importNode($templateCard, true);
-  //   $fragment.appendChild($clon);
-  // });
-
-  // $cards.appendChild($fragment);
   const section = await getData(option);
   console.log(section);
   document.addEventListener("click", (e) => {
     if (e.target.matches(".cards a p")) {
       enviarDatosPrenda(e.target.parentNode.parentNode, section);
-
-      // Tengo que hacer que la info se madne al sessionstorage
     }
   });
 
@@ -57,9 +42,10 @@ export function generarShow() {
     template_show = document.getElementById("template-show").content;
 
   let prendaData = sessionStorage.getItem("prenda");
+  console.log(sessionStorage.getItem("prenda"));
   prendaData = JSON.parse(prendaData);
 
-  let { img1, img2, img3, alt, description, price } = prendaData;
+  let { type, img1, img2, img3, alt, description, price } = prendaData;
   template_show.querySelector(".s1").children[0].setAttribute("src", img1);
   template_show.querySelector(".s1").children[0].setAttribute("alt", alt);
 
@@ -77,10 +63,18 @@ export function generarShow() {
     description;
   template_show.querySelector(".precio").children[0].textContent = `$${price}`;
 
+  type == "h"
+    ? template_show
+        .querySelector("form")
+        .setAttribute("action", "./hombre.html")
+    : template_show
+        .querySelector("form")
+        .setAttribute("action", "./mujer.html");
+
   $box_show.appendChild(template_show);
 }
 
-export function generarSweetModalCarrito(carrito) {
+export function generarSweetModalCarrito() {
   // $templateProducto Contiene un template que esta contenido en otro template
   // $fragment se guardan todas las instancias generadas para ser agregadas a $box
   // $box es el contenedor donde van a ir agregado el fragmento

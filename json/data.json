@@ -3,6 +3,7 @@
     "hombre":[
         {
             "id": 0,
+            "type": "h",
             "img1": "../img/masculino/buzo-blanco.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -12,6 +13,7 @@
           },
           {
             "id": 1,
+            "type": "h",
             "img1": "../img/masculino/camisa-azul.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -21,6 +23,7 @@
           },
           {
             "id": 2,
+            "type": "h",
             "img1": "https://placeimg.com/200/200/any",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -30,6 +33,7 @@
           },
           {
             "id": 3,
+            "type": "h",
             "img1": "../img/masculino/buzo-blanco.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -39,6 +43,7 @@
           },
           {
             "id": 4,
+            "type": "h",
             "img1": "../img/masculino/camisa-azul.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -48,6 +53,7 @@
           },
           {
             "id": 5,
+            "type": "h",
             "img1": "https://placeimg.com/200/200/any",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -59,6 +65,7 @@
     "mujer":[
         {
             "id":0,
+            "type": "m",
             "img1": "../img/vestidoAzul.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -68,6 +75,7 @@
           },
           {
             "id":1,
+            "type": "m",
             "img1": "../img/conjunto-marron.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -77,6 +85,7 @@
           },
           {
             "id":2,
+            "type": "m",
             "img1": "../img/tacos-rojos.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -86,6 +95,7 @@
           },
           {
             "id":3,
+            "type": "m",
             "img1": "../img/remera-negra.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -95,6 +105,7 @@
           },
           {
             "id":4,
+            "type": "m",
             "img1": "../img/vestido-negro.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",
@@ -104,6 +115,7 @@
           },
           {
             "id":5,
+            "type": "m",
             "img1": "../img/pantalon-blanco.jpg",
             "img2": "https://dummyimage.com/200/000000/ffffff.jpg",
             "img3": "https://dummyimage.com/200/000000/ffffff.jpg",

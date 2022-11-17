@@ -1,11 +1,14 @@
-export function generarCard(option) {
+import { getData } from "./script.js";
+
+export async function generarCard(option) {
   const $templateCard = document.getElementById("template-card").content,
     $cards = document.querySelector(".cards"),
     $fragment = document.createDocumentFragment();
   //Genera tarjetas dinamicas en los html donde esta funcion sea llamada,dependiendo del option que le pase toma los datos del LocalSotorage
-  let prenda = localStorage.getItem(option);
-  prenda = JSON.parse(prenda);
-  prenda.forEach((element, index) => {
+  console.log(window.location);
+
+  const items = await getData(option);
+  items.forEach((element, index) => {
     let { img1, img2, img3, alt, description, price } = element;
     $templateCard.querySelector("div").setAttribute("data-id", index);
     $templateCard.querySelector("img").setAttribute("src", img1);
@@ -15,22 +18,18 @@ export function generarCard(option) {
     const $clon = document.importNode($templateCard, true);
     $fragment.appendChild($clon);
   });
-
   $cards.appendChild($fragment);
-
+  const section = await getData(option);
+  console.log(section);
   document.addEventListener("click", (e) => {
     if (e.target.matches(".cards a p")) {
-      enviarDatosPrenda(
-        e.target.parentNode.parentNode,
-        localStorage.getItem(option)
-      );
+      enviarDatosPrenda(e.target.parentNode.parentNode, section);
     }
   });
 
   function enviarDatosPrenda(padre, prenda) {
     //Recupera y envia los datos al sessionStorage del producto de la card seleccionada
     let prendaID = padre.getAttribute("data-id");
-    prenda = JSON.parse(prenda);
     prenda = prenda[prendaID];
     const JsonPrenda = JSON.stringify(prenda);
     sessionStorage.setItem("prenda", JsonPrenda);
@@ -43,9 +42,10 @@ export function generarShow() {
     template_show = document.getElementById("template-show").content;
 
   let prendaData = sessionStorage.getItem("prenda");
+  console.log(sessionStorage.getItem("prenda"));
   prendaData = JSON.parse(prendaData);
 
-  let { img1, img2, img3, alt, description, price } = prendaData;
+  let { type, img1, img2, img3, alt, description, price } = prendaData;
   template_show.querySelector(".s1").children[0].setAttribute("src", img1);
   template_show.querySelector(".s1").children[0].setAttribute("alt", alt);
 
@@ -63,10 +63,18 @@ export function generarShow() {
     description;
   template_show.querySelector(".precio").children[0].textContent = `$${price}`;
 
+  type == "h"
+    ? template_show
+        .querySelector("form")
+        .setAttribute("action", "./hombre.html")
+    : template_show
+        .querySelector("form")
+        .setAttribute("action", "./mujer.html");
+
   $box_show.appendChild(template_show);
 }
 
-export function generarSweetModalCarrito(carrito) {
+export function generarSweetModalCarrito() {
   // $templateProducto Contiene un template que esta contenido en otro template
   // $fragment se guardan todas las instancias generadas para ser agregadas a $box
   // $box es el contenedor donde van a ir agregado el fragmento
@@ -105,6 +113,3 @@ export function generarSweetModalCarrito(carrito) {
     ).textContent = `Precio Total: $${newTotal_price}`;
   }
 }
-
-// Podria hacer una funcion para buscar la info de storage, hago los mismo paso
-// en distintas funcionas(type="tipo se sesion", obj = "Lo que hay que buscar" )
